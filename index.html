@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxirent - Renta de Autos y Montacargas</title>
+    
+    <!-- Tailwind CSS CDN para estilos rápidos y responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Usamos la fuente Inter como base para todo el sitio */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efecto de superposición oscuro para la imagen del héroe para mejorar la legibilidad del texto */
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        /* Estilos para la animación del pop-up */
+        #popup-content {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+    </style>
+
+    <!-- ========= INICIO: SNIPPET DE GENESYS ========= -->
+    <script type="text/javascript" charset="utf-8">
+      (function (g, e, n, es, ys) {
+        g['_genesysJs'] = e;
+        g[e] = g[e] || function () {
+          (g[e].q = g[e].q || []).push(arguments)
+        };
+        g[e].t = 1 * new Date();
+        g[e].c = es;
+        ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+      })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
+        environment: 'prod',
+        deploymentId: '95c1cad0-5d91-4bb2-a407-d25e5a9c6186'
+      });
+    </script>
+    <!-- ========= FIN: SNIPPET DE GENESYS ========= -->
+
+</head>
+<body class="bg-gray-50">
+
+    <!-- ========== Header / Navegación ========== -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-[#1b232c]">
+                <a href="#">MAXI<span class="text-[#cb6228]">RENT</span></a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-600 hover:text-[#cb6228] transition duration-300">Inicio</a>
+                <a href="#" class="text-gray-600 hover:text-[#cb6228] transition duration-300">Renta de Autos</a>
+                <a href="#" class="text-gray-600 hover:text-[#cb6228] transition duration-300">Renta de Montacargas</a>
+                <a href="#" class="text-gray-600 hover:text-[#cb6228] transition duration-300">Contacto</a>
+            </div>
+            <!-- Se añade un ID al botón para identificarlo con JavaScript -->
+            <a href="#" id="cotizar-btn" class="hidden md:block bg-[#cb6228] text-white font-bold py-2 px-5 rounded-lg hover:bg-[#a95020] transition duration-300">
+                Cotizar Ahora
+            </a>
+            <!-- Menú móvil (opcional, para futuras mejoras) -->
+            <div class="md:hidden">
+                <button class="text-[#1b232c] focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== Sección Principal (Hero) ========== -->
+    <main>
+        <section class="relative bg-cover bg-center h-[60vh]" style="background-image: url('https://i.postimg.cc/SRDd0gnr/mujer-elegante-y-elegante-en-un-salon-de-autos.jpg');">
+            <div class="absolute inset-0 hero-overlay flex items-center justify-center">
+                <div class="text-center text-white px-4">
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Soluciones en Renta de Vehículos</h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">La flota más moderna y el mejor servicio para tus proyectos y necesidades de transporte.</p>
+                    <a href="#" class="bg-[#cb6228] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[#a95020] transition duration-300">
+                        Ver Flota
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Sección de Servicios ========== -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-[#1b232c] mb-4">Nuestros Servicios Principales</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-12">Ofrecemos soluciones flexibles y confiables para cada necesidad.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Card: Renta de Autos -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="mb-4">
+                            <svg class="w-16 h-16 mx-auto text-[#cb6228]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17l-2 2-2-2m4 4V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2a2 2 0 002-2zM15 7l2-2 2 2m-4-4v14a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2h-2a2 2 0 00-2 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1b232c] mb-3">Renta de Autos</h3>
+                        <p class="text-gray-600 mb-6">Vehículos para uso personal o corporativo. Desde compactos hasta SUVs, tenemos el auto perfecto para ti.</p>
+                        <a href="#" class="font-semibold text-[#cb6228] hover:text-[#a95020] transition duration-300">Ver modelos →</a>
+                    </div>
+                    <!-- Card: Renta de Montacargas -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="mb-4">
+                            <svg class="w-16 h-16 mx-auto text-[#cb6228]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1b232c] mb-3">Renta de Montacargas</h3>
+                        <p class="text-gray-600 mb-6">Equipos de carga para almacenes, construcción y logística. Potencia y eficiencia para tu operación.</p>
+                        <a href="#" class="font-semibold text-[#cb6228] hover:text-[#a95020] transition duration-300">Ver equipos →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== Footer ========== -->
+    <footer class="bg-[#1b232c] text-white">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MAXI<span class="text-[#cb6228]">RENT</span></h3>
+                    <p class="text-gray-400">Tu socio confiable en soluciones de renta de vehículos y maquinaria.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Nosotros</a></li>
+                        <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Flota</a></li>
+                        <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Contacto</a></li>
+                        <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Aviso de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <p class="text-gray-400">Av. Principal 123, Col. Industrial</p>
+                    <p class="text-gray-400">Ciudad de México, CP 01234</p>
+                    <p class="text-gray-400 mt-2">Tel: (55) 1234-5678</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; 2024 Maxirent. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== Pop-up para Chat ========== -->
+    <div id="chat-popup" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300">
+        <div class="bg-white rounded-xl p-8 shadow-2xl max-w-sm w-full text-center transform scale-95 opacity-0" id="popup-content">
+            <h3 class="text-2xl font-bold text-[#1b232c] mb-2">¿Necesitas ayuda?</h3>
+            <p class="text-gray-600 mb-6">Prueba nuestra nueva forma de atención y habla directamente con Max, nuestro asistente virtual.</p>
+            <div class="flex justify-center space-x-4">
+                <button id="open-chat-btn" class="bg-[#cb6228] text-white font-bold py-2 px-6 rounded-lg hover:bg-[#a95020] transition duration-300">
+                    Hablar con Max
+                </button>
+                <button id="close-popup-btn" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition duration-300">
+                    Ahora no
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Lógica para manejar el pop-up de invitación al chat ---
+        
+        // Obtener los elementos del DOM
+        const cotizarButton = document.getElementById('cotizar-btn');
+        const chatPopup = document.getElementById('chat-popup');
+        const popupContent = document.getElementById('popup-content');
+        const openChatBtn = document.getElementById('open-chat-btn');
+        const closePopupBtn = document.getElementById('close-popup-btn');
+
+        // Variable para asegurar que el pop-up se muestre solo una vez por sesión de página
+        let popupShown = false;
+
+        // Función para mostrar el pop-up con una animación suave
+        const showPopup = () => {
+            if (!popupShown) {
+                chatPopup.classList.remove('hidden');
+                // Pequeño delay para que la transición de CSS se aplique correctamente
+                setTimeout(() => {
+                    popupContent.classList.remove('scale-95', 'opacity-0');
+                    popupContent.classList.add('scale-100', 'opacity-100');
+                }, 50);
+                popupShown = true; // Marcar que el pop-up ya fue mostrado
+            }
+        };
+
+        // Función para ocultar el pop-up con animación
+        const hidePopup = () => {
+            popupContent.classList.add('scale-95', 'opacity-0');
+            // Esperar que la transición termine antes de ocultar el elemento
+            setTimeout(() => {
+                chatPopup.classList.add('hidden');
+            }, 300); 
+        };
+
+        // Evento: Mostrar el pop-up cuando el cursor pasa sobre "Cotizar Ahora"
+        if (cotizarButton) {
+            cotizarButton.addEventListener('mouseenter', showPopup);
+        }
+
+        // Evento: Ocultar el pop-up al hacer clic en "Ahora no"
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', hidePopup);
+        }
+
+        // Evento: Abrir el chat de Genesys y ocultar el pop-up
+        if (openChatBtn) {
+            openChatBtn.addEventListener('click', () => {
+                // Verificar si el comando de Genesys está disponible antes de llamarlo
+                if (typeof Genesys === 'function') {
+                    Genesys('command', 'Messaging.open');
+                } else {
+                    console.error('La función de Genesys no se encontró. Asegúrate que el snippet se cargó correctamente.');
+                }
+                hidePopup();
+            });
+        }
+    </script>
+
+</body>
+</html>
+
